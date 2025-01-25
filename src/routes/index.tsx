@@ -1,3 +1,4 @@
+import { trpc } from "@/lib/trpc";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -5,6 +6,10 @@ export const Route = createFileRoute("/")({
 });
 
 function HomeComponent() {
+  const { data } = trpc.getAll.useQuery();
+
+  console.log(data);
+
   return (
     <div className="p-2">
       <h3>Welcome Home!</h3>
