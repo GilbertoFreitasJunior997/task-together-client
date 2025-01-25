@@ -1,3 +1,4 @@
+import "./styles.css";
 import ReactDOM from "react-dom/client";
 import { Providers } from "./components/providers";
 import { Router } from "./components/router";
