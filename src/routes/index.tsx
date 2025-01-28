@@ -6,13 +6,24 @@ export const Route = createFileRoute("/")({
 });
 
 function HomeComponent() {
-  const { data } = trpc.getAll.useQuery();
-
-  console.log(data);
+  const { mutate } = trpc.auth.signIn.useMutation();
 
   return (
     <div className="p-2">
       <h3>Welcome Home!</h3>
+
+      <button
+        type="button"
+        onClick={() => {
+          mutate({
+            email: "test@mail.com",
+            username: "MyName",
+            password: "123",
+          });
+        }}
+      >
+        LOGIN
+      </button>
     </div>
   );
 }
